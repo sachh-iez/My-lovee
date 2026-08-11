@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Hal — Our First Anniversary 💜</title>
+<style>
+*{box-sizing:border-box}
+:root{--bg:#120b24;--panel:#21133b;--purple:#a875ff;--light:#eadbff;--pink:#f0b8ff;--text:#fff8ff}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 50% 0,#392060 0,#171027 45%,#0d0818 100%);color:var(--text);font-family:Georgia,"Times New Roman",serif;min-height:100vh}
+button{font:inherit}
+.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px;position:relative;overflow:hidden}
+.stars,.stars:before,.stars:after{content:"";position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:90px 90px;opacity:.16;pointer-events:none}
+.stars:before{background-size:130px 130px;transform:translate(20px,35px);opacity:.12}
+.card{width:min(920px,100%);background:rgba(24,14,43,.84);border:1px solid rgba(208,169,255,.32);box-shadow:0 0 50px rgba(137,77,255,.22);border-radius:28px;padding:30px;backdrop-filter:blur(10px);position:relative;z-index:2}
+.hidden{display:none!important}
+.kicker{text-transform:uppercase;letter-spacing:4px;color:#d9baff;font-size:.78rem}
+h1{font-size:clamp(2.3rem,8vw,5rem);margin:10px 0;color:#fff;text-shadow:0 0 22px rgba(201,150,255,.35)}
+h2{font-size:clamp(1.8rem,5vw,3rem);margin:8px 0 18px}
+h3{margin-bottom:8px;color:#f0dfff}
+p{line-height:1.8;color:#f0e8f7}
+.center{text-align:center}
+.heart{font-size:42px;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{transform:scale(1.13)}}
+.cats{font-size:54px;letter-spacing:20px;margin:18px 0}
+.catboy{filter:hue-rotate(190deg)}
+input{width:min(420px,100%);padding:16px 18px;border-radius:16px;border:1px solid #9c69e8;background:#100a1c;color:white;font-size:1.1rem;text-align:center;outline:none}
+input:focus{box-shadow:0 0 0 3px rgba(168,117,255,.25)}
+.btn{border:0;border-radius:16px;padding:14px 20px;margin:8px;background:linear-gradient(135deg,#9c64ed,#6d40b5);color:white;cursor:pointer;box-shadow:0 8px 24px rgba(108,59,183,.25);transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.small{font-size:.88rem;color:#cdb9e3}
+#error{color:#ffb9d9;min-height:24px}
+.nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin:12px 0 30px}
+.nav .btn{flex:1;min-width:180px}
+.section{padding:24px 0;border-top:1px solid rgba(220,185,255,.16)}
+.music-box{background:rgba(255,255,255,.045);border:1px solid rgba(220,185,255,.2);border-radius:22px;padding:24px;text-align:center}
+.cover{width:145px;height:145px;margin:0 auto 18px;border-radius:50%;background:radial-gradient(circle,#e8c7ff 0 5%,#9d6de8 6% 13%,#321a52 14% 100%);box-shadow:0 0 35px rgba(176,116,255,.35);display:grid;place-items:center;font-size:48px}
+.song-title{font-size:1.35rem;color:#fff;margin:8px 0}
+.song-meaning{min-height:92px;color:#dfd0ed}
+audio{width:100%;margin:12px 0;filter:hue-rotate(15deg)}
+.progress-note{font-size:.82rem;color:#baa4d1}
+.flower-scene{text-align:center;padding:18px}
+.bouquet{font-size:92px;line-height:1.1;filter:drop-shadow(0 8px 12px rgba(0,0,0,.25));margin:10px}
+.sunflowers{font-size:58px;letter-spacing:6px}
+.cats3{font-size:56px;letter-spacing:8px;margin:15px}
+.note{background:rgba(255,255,255,.045);border-left:3px solid #b67cff;padding:18px 20px;border-radius:0 15px 15px 0;margin:18px 0}
+.letter{white-space:normal}
+.letter p{margin:0 0 18px}
+.signature{text-align:center;color:#f0cfff;font-size:1.25rem;margin-top:25px}
+.footer{text-align:center;color:#aa93c1;padding:25px 0 5px}
+@media(max-width:600px){.card{padding:20px 15px}.cats{font-size:42px;letter-spacing:8px}.cats3{font-size:42px}.btn{width:calc(100% - 16px)}}
+</style>
+</head>
+<body>
+
+<section id="login" class="page">
+<div class="stars"></div>
+<div class="card center">
+<div class="heart">💜</div>
+<div class="kicker">A little surprise for you</div>
+<h1>Hi, Hal</h1>
+<div class="cats">🐱 🐱</div>
+<p>Two little cats are waiting to unlock a special memory.</p>
+<input id="password" type="password" inputmode="numeric" maxlength="6" placeholder="Enter our special date">
+<div><button class="btn" onclick="unlock()">UNLOCK ♡</button></div>
+<div id="error"></div>
+<p class="small">Hint: our monthsary • 6 numbers</p>
+</div>
+</section>
+
+<main id="home" class="page hidden" style="align-items:flex-start">
+<div class="stars"></div>
+<div class="card">
+<div class="center">
+<div class="kicker">12 months • 365 little memories</div>
+<h2>Happy 1st Anniversary, Hal 💜</h2>
+<p>For my love, with all my heart.</p>
+</div>
+
+<div class="nav">
+<button class="btn" onclick="showSection('music')">🎵 Songs That Remind Me of You</button>
+<button class="btn" onclick="showSection('flower')">🌻 Visual Flower</button>
+<button class="btn" onclick="showSection('letter')">💌 My Message for Her</button>
+</div>
+
+<section id="music" class="section">
+<div class="center"><div class="kicker">A little playlist for you</div><h2>🎵 Songs I Dedicated to You</h2></div>
+<div class="music-box">
+<div class="cover">🎵</div>
+<div id="songTitle" class="song-title"></div>
+<div id="songMeaning" class="song-meaning"></div>
+<audio id="player" controls preload="metadata"></audio>
+<div>
+<button class="btn" onclick="previousSong()">◀ Previous</button>
+<button class="btn" onclick="togglePlay()">▶ / ❚❚</button>
+<button class="btn" onclick="nextSong()">Next ▶</button>
+</div>
+<div id="songCount" class="progress-note"></div>
+</div>
+</section>
+
+<section id="flower" class="section hidden">
+<div class="center"><div class="kicker">For someone who loves flowers & cats</div><h2>🌻 Visual Flower</h2></div>
+<div class="flower-scene">
+<div class="sunflowers">🌻 🌻 🌻</div>
+<div class="bouquet">💐</div>
+<div class="sunflowers">🌻 🌻 🌻</div>
+<div class="cats3">🐱 🤍 🐱 🤍 🐱</div>
+<p>A sunflower bouquet for you, surrounded by three little cats. 🌻🐱💜</p>
+<p class="small">A simple visual made especially for our anniversary.</p>
+</div>
+</section>
+
+<section id="letter" class="section hidden">
+<div class="center"><div class="kicker">From my heart to yours</div><h2>💌 My Message for Her</h2></div>
+<div class="letter">
+<p>Hi Hal, happy 1st anniversary, my love. 💜</p>
+<p>I still can’t believe na 12 months na tayo. One whole year of being together, one year of memories, laughs, random moments, conversations, and also challenges that we had to face together. Ang dami na nating pinagdaanan in just one year, and looking back, I’m really thankful na ikaw yung kasama ko through all of it.</p>
+<p>I just want to say that I love you so much, more than I can probably explain through words. Thank you for staying with me, especially during the times na hindi naging okay ang lahat. I know na we've been in bad situations sometimes, and there were moments when things became difficult for both of us. We’ve had misunderstandings, challenges, and days when things weren't as easy as we wanted them to be. But despite all of that, andito ka pa rin. You stayed, you listened, you understood me, and you continued choosing to be with me.</p>
+<p>And honestly, that means so much to me.</p>
+<p>Thank you for every day that you choose me. Thank you for choosing us even when things aren't perfect. Thank you for giving us chances to grow, to understand each other better, and to become better for each other. I appreciate every little thing you do, even the things you might think are small or ordinary. To me, those little things are part of what makes our relationship special.</p>
+<p>Thank you for all the memories we've made during these 12 months. The happy moments, the silly moments, the random conversations, the times we laughed over something that wasn't even that funny, and even the difficult moments that taught us something about each other. Every moment became a part of our story, and I'm grateful that I got to experience them with you.</p>
+<p>I know one year might still be just the beginning, and I know we’ll probably face more challenges along the way. But I hope that whenever things get difficult, we remember why we chose each other in the first place. I hope we continue to communicate, understand each other, support each other, and choose each other even on the days when things aren't easy.</p>
+<p>I’m really thankful that out of all the people I could have met, I met you. You became someone very special to me, someone who became a big part of my everyday life and my memories. And I hope you know how much I appreciate having you in my life.</p>
+<p>I love you very much, my love. Thank you for staying. Thank you for choosing me. Thank you for choosing us.</p>
+<p>Happy 1st anniversary, Hal. 💜</p>
+<p>Here's to our first 12 months, all the memories we've made, everything we've learned together, and hopefully many more moments that we can look back on someday and smile about.</p>
+<p>I love you always. Happy anniversary, my love. 🌻🐱💜</p>
+
+<div class="note">
+<h3>🎵 Songs I Dedicated to You</h3>
+<p><strong>1. “Miss Independent” — Ne-Yo</strong><br>
+I chose this song because I admire how strong and independent you are. You have your own personality, your own way of doing things, and your own dreams, and that's one of the things I appreciate about you. I don't want you to ever feel like you have to change who you are just to be loved. I love you for being you, and I’m proud of the person you are.</p>
+
+<p><strong>2. “Libu-Libong Buwan (Uuwian)” — Kyle Raphael</strong><br>
+I dedicated this one because it reminds me of the feeling of having someone you want to come back to. Through all the days, months, and everything life brings, there’s something comforting about knowing there’s someone who feels like home. After everything we've been through, I hope we can continue being that kind of safe place for each other.</p>
+
+<p><strong>3. “Paninindigan” — Ben&Ben</strong><br>
+This song reminds me of choosing someone and standing by that choice. For me, it connects to the part of our relationship where we've faced challenges but still decided to stay and work things out. Love isn't always about the easy days; sometimes it's about choosing to understand, choosing to communicate, and choosing to stay committed to what you have together.</p>
+
+<p><strong>4. “Tahanan” — El Manu</strong><br>
+I chose this song because of the feeling behind the word “tahanan” — a place where you feel comfortable, safe, and accepted. In our relationship, I hope you always know that you can be yourself with me. I want our relationship to be a place where we can be honest about our feelings, support each other, and feel like we don't have to face everything alone.</p>
+
+<p><strong>5. “Aya” — Earl Agustin</strong><br>
+I chose “Aya” because it reminds me of the simple, quiet feeling of caring deeply for someone. It makes me think of the little moments we share—the conversations, the memories, and just having someone special to think about. Sometimes you don't need a big reason to love someone. You just do, and I'm happy that person is you. 💜</p>
+</div>
+
+<div class="note">
+<h3>💜 A Little Note</h3>
+<p>I chose these five songs because each one reminds me of a different part of what you mean to me — your strength, the feeling of having someone to come home to, choosing each other through challenges, finding comfort in someone you care about, and the simple feeling of loving someone special.</p>
+<p>And somehow, when I put all five together, they remind me of us.</p>
+</div>
+
+<div class="signature">I love you always. 🌻🐱💜</div>
+</div>
+</section>
+
+<div class="footer">Made with all my love, for you. 💜</div>
+</div>
+</main>
+
+<script>
+const songs = [
+ {title:"Miss Independent — Ne-Yo", file:"music/miss-independent.mp3", meaning:"I chose this because I admire how strong and independent you are. I love you for being you, and I’m proud of the person you are."},
+ {title:"Tahanan — El Manu", file:"music/tahanan.mp3", meaning:"It reminds me of the feeling behind “tahanan” — a place where you can feel comfortable, safe, and accepted. I hope our relationship can always feel like that."},
+ {title:"Libu-Libong Buwan (Uuwian) — Kyle Raphael", file:"music/libu-libong-buwan.mp3", meaning:"It reminds me of having someone you want to come back to. After everything we've been through, I hope we can continue being a safe place for each other."},
+ {title:"Paninindigan — Ben&Ben", file:"music/paninindigan.mp3", meaning:"This reminds me of choosing someone and standing by that choice. Even through challenges, we can choose to understand, communicate, and work things out."},
+ {title:"Aya — Earl Agustin", file:"music/aya.mp3", meaning:"This reminds me of the simple, quiet feeling of caring deeply for someone. Sometimes you don't need a big reason to love someone. You just do, and I'm happy that person is you. 💜"}
+];
+let current=0;
+const player=document.getElementById("player");
+
+function unlock(){
+ const value=document.getElementById("password").value.trim();
+ if(value==="112925"){
+   document.getElementById("login").classList.add("hidden");
+   document.getElementById("home").classList.remove("hidden");
+   loadSong(0);
+ }else{
+   document.getElementById("error").textContent="That isn't our special date. Try again, love. 💜";
+ }
+}
+document.getElementById("password").addEventListener("keydown",e=>{if(e.key==="Enter")unlock()});
+
+function loadSong(i, autoplay=false){
+ current=(i+songs.length)%songs.length;
+ document.getElementById("songTitle").textContent=songs[current].title;
+ document.getElementById("songMeaning").textContent=songs[current].meaning;
+ document.getElementById("songCount").textContent=`Song ${current+1} of ${songs.length}`;
+ player.src=songs[current].file;
+ player.load();
+ if(autoplay) player.play().catch(()=>{});
+}
+function togglePlay(){
+ if(player.paused) player.play().catch(()=>{});
+ else player.pause();
+}
+function nextSong(){loadSong(current+1,true)}
+function previousSong(){loadSong(current-1,true)}
+player.addEventListener("ended",()=>nextSong());
+
+function showSection(id){
+ ["music","flower","letter"].forEach(x=>document.getElementById(x).classList.add("hidden"));
+ document.getElementById(id).classList.remove("hidden");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+</body>
+</html>
